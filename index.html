@@ -88,7 +88,10 @@
         }
         
         section:nth-child(even) {
-            background-color: var(--light);
+            background-color: rgba(26, 26, 46, 0.8); /* Fond sombre semi-transparent */
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(76, 201, 240, 0.3);
+            border-bottom: 1px solid rgba(76, 201, 240, 0.3);
         }
         
         .section-title {
@@ -125,18 +128,21 @@
         }
         
         .skill-category {
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.637);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(76, 201, 240, 0.3);
+            border-radius: 8px;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 4px solid var(--accent);
+            box-shadow: 0 0 15px rgba(76, 201, 240, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0.9;
         }
         
         .skill-category:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            animation: pulse 0.5s ease;
+            opacity: 1;
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(76, 201, 240, 0.3);
+            border-color: rgba(76, 201, 240, 0.7);
         }
         
         .skill-category h3 {
@@ -197,17 +203,18 @@
         }
         
         .project-card {
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.637);
+            backdrop-filter: blur(10px);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
+            border: 1px solid rgba(76, 201, 240, 0.3);
+            box-shadow: 0 0 15px rgba(76, 201, 240, 0.2);
+            transition: all 0.3s ease;
         }
         
         .project-card:hover {
-            transform: translateY(-10px) !important;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+            box-shadow: 0 0 25px rgba(76, 201, 240, 0.3);
+            border-color: rgba(76, 201, 240, 0.5);
         }
         
         .project-image {
@@ -313,16 +320,19 @@
         }
         
         .method-card {
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.637);
+            backdrop-filter: blur(10px);
             padding: 2rem 1.5rem;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            border: 1px solid rgba(76, 201, 240, 0.3);
+            box-shadow: 0 0 15px rgba(76, 201, 240, 0.2);
+            transition: all 0.3s ease;
         }
         
         .method-card:hover {
-            transform: translateY(-10px);
-            animation: wave 0.8s ease;
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(76, 201, 240, 0.3);
+            border-color: rgba(76, 201, 240, 0.7);
         }
         
         .method-icon {
