@@ -593,7 +593,7 @@ footer {
   display: flex;
   align-items: center;
   padding: 8px 10px;
-  color: var(--primary, #4895ef);
+  color: #21243d;
   text-decoration: none;
   font-size: 1.1rem;
   border-radius: 16px;
@@ -612,6 +612,10 @@ footer {
   border-radius: 16px 0 0 16px;
 }
 
+.floating-menu .menu-item.active .menu-title, .floating-menu .menu-item:active .menu-title {
+  color: #fff;
+}
+
 .floating-menu .menu-title {
   opacity: 0;
   max-width: 0;
@@ -620,13 +624,13 @@ footer {
   overflow: hidden;
   transition: opacity 0.2s, max-width 0.2s;
   font-size: 0.9rem;
-  color: #222;
+  color: #21243d;
 }
 
 .floating-menu:hover .menu-title, .floating-menu:focus-within .menu-title {
   opacity: 1;
   max-width: 160px;
-  color: #222;
+  color: #21243d;
 }
 
 @media (max-width: 900px) {
