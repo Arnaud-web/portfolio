@@ -557,3 +557,92 @@ footer {
     50% { transform: translateY(-100px) translateX(100px) rotate(180deg); filter: drop-shadow(0 0 10px #f72585); }
     100% { transform: translateY(0) translateX(0) rotate(360deg); filter: drop-shadow(0 0 5px #4cc9f0); }
 }
+
+/* Floating Menu */
+.floating-menu {
+  position: fixed;
+  top: 50%;
+  left: 16px;
+  right: auto;
+  transform: translateY(-50%);
+  z-index: 1000;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(76,201,240,0.22);
+  box-shadow: 0 2px 24px rgba(76,201,240,0.12);
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(76,201,240,0.22);
+  box-shadow: 0 2px 24px rgba(76,201,240,0.12);
+  margin-top: 32px;
+  margin-bottom: 32px;
+  transition: background 0.2s;
+}
+
+.floating-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.floating-menu .menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  color: var(--primary, #4895ef);
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-radius: 16px;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+}
+
+.floating-menu .menu-item:hover, .floating-menu .menu-item:focus {
+  background: var(--primary, #4895ef);
+  color: #fff;
+}
+
+.floating-menu .menu-item.active, .floating-menu .menu-item:active {
+  background: #2f2f4f;
+  color: #fff;
+  border-radius: 16px 0 0 16px;
+}
+
+.floating-menu .menu-title {
+  opacity: 0;
+  max-width: 0;
+  margin-left: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.2s, max-width 0.2s;
+  font-size: 0.9rem;
+  color: #222;
+}
+
+.floating-menu:hover .menu-title, .floating-menu:focus-within .menu-title {
+  opacity: 1;
+  max-width: 160px;
+  color: #222;
+}
+
+@media (max-width: 900px) {
+  .floating-menu {
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, 0);
+    flex-direction: row;
+    border-radius: 12px 12px 0 0;
+    padding: 4px 0;
+  }
+  .floating-menu ul {
+    flex-direction: row;
+    display: flex;
+    gap: 0;
+  }
+}
