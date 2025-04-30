@@ -145,3 +145,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     animate();
 });
+
+// Animation sur chaque mot pour .animated-words
+function animateWords() {
+    document.querySelectorAll('.animated-words').forEach(element => {
+        const words = element.textContent.split(' ');
+        element.innerHTML = words.map((word, i) => `<span class="word-anim" style="opacity:0; display:inline-block; transform:translateY(20px); transition:all 0.6s cubic-bezier(.77,0,.18,1) ${i*0.12}s">${word}</span>`).join(' ');
+        setTimeout(() => {
+            element.querySelectorAll('.word-anim').forEach(span => {
+                span.style.opacity = 1;
+                span.style.transform = 'translateY(0)';
+            });
+        }, 100);
+    });
+}
+document.addEventListener('DOMContentLoaded', animateWords);

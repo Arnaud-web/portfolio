@@ -71,6 +71,16 @@ h1 {
     animation: fadeIn 1.5s ease;
 }
 
+.animated-words .word-anim {
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(20px);
+}
+
+.animated-words .word-anim {
+  transition: all 0.6s cubic-bezier(.77,0,.18,1);
+}
+
 /* Sections */
 section {
     padding: 4rem 0;
