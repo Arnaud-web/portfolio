@@ -49,16 +49,20 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const particlesContainer = document.getElementById('tech-particles');
     const techLogos = [
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+        'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/logo.svg',
+        'https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png',
         'https://cdn.worldvectorlogo.com/logos/laravel-2.svg',
-        'https://cdn.worldvectorlogo.com/logos/php-1.svg',
-        'https://cdn.worldvectorlogo.com/logos/javascript-1.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
+        'https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.svg',
         'https://cdn.worldvectorlogo.com/logos/symfony.svg',
-        'https://cdn.worldvectorlogo.com/logos/mysql-6.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg',
         'https://cdn.worldvectorlogo.com/logos/react-2.svg',
         'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg',
         'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
         'https://cdn.worldvectorlogo.com/logos/doctrine.svg',
-        'https://cdn.worldvectorlogo.com/logos/twig-1.svg',
+        'https://twig.symfony.com/images/logo.md.png',
         'https://cdn.worldvectorlogo.com/logos/html-1.svg',
         'https://cdn.worldvectorlogo.com/logos/css-3.svg'
     ];
