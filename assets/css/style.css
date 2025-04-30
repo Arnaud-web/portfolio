@@ -279,6 +279,8 @@ section:nth-child(even) {
 
 .project-content {
     padding: 1.5rem;
+    padding-top: 3.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .project-content h3 {
@@ -867,4 +869,42 @@ footer {
     display: flex;
     gap: 0;
   }
+}
+
+.project-footer-details {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: rgba(26, 26, 46, 0.85);
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 0.35s, transform 0.35s;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    font-size: 0.98rem;
+    z-index: 3;
+}
+
+.project-card:hover .project-footer-details {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.project-footer-details i {
+    margin-right: 7px;
+    color: #4cc9f0;
+}
+
+.project-card {
+    position: relative;
 }
