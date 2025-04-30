@@ -277,16 +277,10 @@ section:nth-child(even) {
 }
 
 .project-features {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.3s ease;
-    transform: translateY(10px);
-}
-
-.project-card:hover .project-features {
     max-height: 500px;
     opacity: 1;
+    overflow: visible;
+    transition: all 0.3s ease;
     transform: translateY(0);
     margin-top: 1.5rem;
 }
@@ -294,6 +288,8 @@ section:nth-child(even) {
 .feature-item {
     display: flex;
     margin-bottom: 0.8rem;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .feature-item i {
