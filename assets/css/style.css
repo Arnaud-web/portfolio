@@ -448,102 +448,33 @@ section:nth-child(even) {
 }
 
 /* Timeline / arbre projets */
-.tree-timeline {
-  position: relative;
-  margin: 0 auto;
-  padding: 2rem 0 2rem 0;
-  width: 100%;
-  max-width: 1200px;
-}
-
-.timeline-line {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(to bottom, var(--accent) 0%, var(--primary) 100%);
-  transform: translateX(-50%);
-  z-index: 1;
-  border-radius: 2px;
-}
-
-.timeline-item {
-  position: relative;
-  width: 50%;
-  padding: 2rem 0;
-  z-index: 2;
+.tree-timeline-grid {
   display: flex;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px 3%;
+  justify-content: space-between;
+  margin-bottom: 40px;
 }
-
-.timeline-item.left {
-  left: 0;
-  justify-content: flex-end;
-  text-align: right;
+.timeline-project {
+  flex: 1 1 47%;
+  min-width: 320px;
+  max-width: 49%;
+  display: flex;
 }
-.timeline-item.right {
-  left: 50%;
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.timeline-content {
-    position: relative;
-    padding: 0;
-    width: 95%;
-    max-width: 520px;
-    margin: 0 1.5rem;
-}
-
-.timeline-item.left .timeline-content::before,
-.timeline-item.right .timeline-content::before {
-  content: '';
-  position: absolute;
-  top: 40px;
-  width: 24px;
-  height: 24px;
-  background: var(--primary);
-  border-radius: 50%;
-  box-shadow: 0 0 0 6px var(--light);
-  z-index: 3;
-}
-.timeline-item.left .timeline-content::before {
-  right: -37px;
-}
-.timeline-item.right .timeline-content::before {
-  left: -37px;
-}
-
-.timeline-content > .project-card,
-.project-card {
-    max-width: 520px;
-    width: 100%;
-}
-
 @media (max-width: 900px) {
-  .tree-timeline {
+  .tree-timeline-grid {
+    flex-direction: column;
+    gap: 30px 0;
+  }
+  .timeline-project {
     max-width: 100%;
-  }
-  .timeline-item, .timeline-item.left, .timeline-item.right {
+    min-width: 0;
     width: 100%;
-    left: 0;
-    justify-content: center;
-    text-align: left;
   }
-  .timeline-content {
-    margin: 0 0 2rem 0;
-    max-width: 95vw;
-  }
-  .timeline-item.left .timeline-content::before,
-  .timeline-item.right .timeline-content::before {
-    left: -37px;
-    right: auto;
-  }
-  .timeline-line {
-    left: 20px;
-    transform: none;
-  }
+}
+
+.tree-timeline, .timeline-item, .timeline-line {
+  display: none !important;
 }
 
 /* Footer */
