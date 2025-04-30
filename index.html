@@ -182,6 +182,13 @@
             font-size: 1.2rem;
         }
         
+        .skill-icon img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+        
         /* Projects */
         .projects-container {
             display: grid;
@@ -272,7 +279,18 @@
         }
         
         .project-features {
-            margin-top: 1rem;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+            transform: translateY(10px);
+        }
+        
+        .project-card:hover .project-features {
+            max-height: 500px;
+            opacity: 1;
+            transform: translateY(0);
+            margin-top: 1.5rem;
         }
         
         .feature-item {
@@ -491,9 +509,56 @@
             transform: scaleX(1);
             transform-origin: left;
         }
+        
+        #tech-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .tech-particle {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 1;
+            animation: floatTech 15s infinite linear;
+            filter: drop-shadow(0 0 2px rgba(0,0,0,0.2));
+        }
+        
+        #tech-particles::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(67,97,238,0.05) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+        }
+        
+        .particle-line {
+            position: absolute;
+            height: 1px;
+            background: rgba(255,255,255,0.2);
+            transform-origin: left;
+        }
+        
+        @keyframes floatTech {
+            0% { transform: translateY(0) translateX(0) rotate(0deg); }
+            50% { transform: translateY(-100px) translateX(100px) rotate(180deg); }
+            100% { transform: translateY(0) translateX(0) rotate(360deg); }
+        }
     </style>
 </head>
 <body>
+    <div id="tech-particles"></div>
     <header>
         <div class="container header-content">
             <h1>Développeur Fullstack</h1>
@@ -936,6 +1001,80 @@
                     });
                 });
             });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('tech-particles');
+            const techLogos = [
+                'https://cdn.worldvectorlogo.com/logos/laravel-2.svg',
+                'https://cdn.worldvectorlogo.com/logos/php-1.svg',
+                'https://cdn.worldvectorlogo.com/logos/javascript-1.svg',
+                'https://cdn.worldvectorlogo.com/logos/symfony.svg',
+                'https://cdn.worldvectorlogo.com/logos/mysql-6.svg',
+                'https://cdn.worldvectorlogo.com/logos/react-2.svg',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+                'https://cdn.worldvectorlogo.com/logos/doctrine.svg',
+                'https://cdn.worldvectorlogo.com/logos/twig-1.svg',
+                'https://cdn.worldvectorlogo.com/logos/html-1.svg',
+                'https://cdn.worldvectorlogo.com/logos/css-3.svg'
+            ];
+            
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'tech-particle';
+                
+                // Choisir un logo aléatoire
+                const randomLogo = techLogos[Math.floor(Math.random() * techLogos.length)];
+                particle.style.backgroundImage = `url('${randomLogo}')`;
+                
+                // Position aléatoire
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Animation différente pour chaque particule
+                const duration = 10 + Math.random() * 20;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+                
+                // Supprimer après l'animation pour éviter la surcharge
+                setTimeout(() => {
+                    particle.remove();
+                }, duration * 1000);
+            }
+            
+            // Créer des particules régulièrement
+            setInterval(createParticle, 500);
+            
+            // Créer quelques particules au démarrage
+            for (let i = 0; i < 20; i++) {
+                setTimeout(createParticle, i * 300);
+            }
+            
+            function connectParticles() {
+                const particles = document.querySelectorAll('.tech-particle');
+                particles.forEach(p1 => {
+                    particles.forEach(p2 => {
+                        const dist = Math.sqrt(
+                            Math.pow(parseFloat(p1.style.left) - parseFloat(p2.style.left), 2) +
+                            Math.pow(parseFloat(p1.style.top) - parseFloat(p2.style.top), 2)
+                        );
+                        if (dist < 20) { // Seuil de proximité
+                            const line = document.createElement('div');
+                            line.className = 'particle-line';
+                            line.style.width = `${dist}%`;
+                            line.style.left = p1.style.left;
+                            line.style.top = p1.style.top;
+                            line.style.opacity = (1 - dist/20).toFixed(2);
+                            particlesContainer.appendChild(line);
+                            setTimeout(() => line.remove(), 1000);
+                        }
+                    });
+                });
+            }
+            
+            setInterval(connectParticles, 1000);
         });
     </script>
 </body>
